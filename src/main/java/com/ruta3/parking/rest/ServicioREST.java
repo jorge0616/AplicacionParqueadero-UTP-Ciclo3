@@ -37,18 +37,14 @@ public class ServicioREST {
         return servicioService.obtenerPorId(id);
     }
 
-    /*@GetMapping("/query")
-    public List<Servicio> filtrarPorTipoDeServicio(@RequestParam("nombreServicio") String nombreServicio){
-        return this.servicioService.filtrarPorTipoDeServicio(nombreServicio);
-    }*/
 
     @DeleteMapping(path = "/{id}")
     public String eliminarServicioPorId(@PathVariable(value = "id") long id){
         boolean ok = this.servicioService.eliminarServicio(id);
         if (ok) {
-            return "Se eliminó el servicio " + id;
+            return "Se eliminó el servicio: " + id;
         } else {
-            return "No se pudo eliminar el servicio" + id;
+            return "No se pudo eliminar el servicio: " + id;
         }
     }
 

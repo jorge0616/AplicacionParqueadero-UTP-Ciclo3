@@ -1,6 +1,7 @@
 package com.ruta3.parking.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,6 +22,20 @@ public class RegistroVehiculoService {
     public RegistroVehiculo guardarVehiculos(RegistroVehiculo vehiculo){
         return registroVehiculoRepository.save(vehiculo);
     }
+
+    public Optional<RegistroVehiculo> obtenerPorIdVehiculo(Long id){
+        return registroVehiculoRepository.findById(id);
+    }
+
+    public boolean eliminarVehiculo(Long id){
+        try {
+            registroVehiculoRepository.deleteById(id);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
 
 }
     

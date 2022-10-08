@@ -28,10 +28,6 @@ public class ServicioService {
         return servicioRepository.findById(id);
     }
 
-    /*public List<Servicio> filtrarPorTipoDeServicio(String nombreServicio){
-        return servicioRepository.filtarPorTipoDeServicio(nombreServicio);
-    }*/
-
     public boolean eliminarServicio(Long id){
         try {
             servicioRepository.deleteById(id);
